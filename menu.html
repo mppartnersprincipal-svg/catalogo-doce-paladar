@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Cardápio Digital | Doce Paladar</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#E7DCCC",
+            "on-primary": "#ffffff",
+            "primary-container": "#F8BBD0",
+            "outline-variant": "#D4C3B0",
+            "tertiary": "#322705",
+            "on-surface": "#1E1B18",
+            "background": "#FDF5E6",
+            "outline": "#827060",
+            "surface-container": "#F2E9D8",
+            "surface-container-low": "#F8F0E0",
+            "secondary-container": "#FFD9E4",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#FDF5E6",
+            "on-background": "#1E1B18",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#504439",
+            "on-secondary-container": "#3D1121",
+            "surface-container-high": "#EDE3D2",
+            "on-primary-container": "#3A0020",
+            "secondary": "#C78B9F",
+            "primary": "#6B3048",
+            "tertiary-container": "#F5E4A0",
+            "surface-variant": "#E7DCCC",
+          },
+          fontFamily: { "headline": ["Noto Serif"], "body": ["Plus Jakarta Sans"], "label": ["Plus Jakarta Sans"] },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; line-height: 1; text-transform: none; letter-spacing: normal; white-space: nowrap; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; background-color: #FDF5E6; }
+    h1, h2, h3 { font-family: 'Noto Serif', serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+
+<!-- Header -->
+<header class="bg-[#FDF5E6]/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4 w-full">
+    <a href="index.html"><img src="images/Logo%20Doce%20Paladar%20(2).png" alt="Doce Paladar" class="h-12 w-auto"></a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="index.html">Home</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="catalog.html">Catálogo</a>
+      <a class="text-[#6B3048] font-bold border-b-2 border-[#C78B9F] pb-1" href="menu.html">Cardápio</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="contact.html">Contato</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button data-cart-open class="relative text-[#6B3048] scale-95 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-2xl">shopping_basket</span>
+        <span class="dp-cart-badge absolute -top-1 -right-1 bg-[#C78B9F] text-white text-[10px] w-4 h-4 rounded-full items-center justify-center" style="display:none">0</span>
+      </button>
+      <a href="catalog.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label font-semibold hover:bg-[#8B4060] transition-colors">Pedir Online</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-12 pb-24 md:pb-12">
+
+  <!-- Hero Banner -->
+  <section class="relative rounded-xl overflow-hidden mb-12 h-64 md:h-80">
+    <img class="w-full h-full object-cover"
+      alt="Interior aconchegante da padaria Doce Paladar"
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3aa6RTO8SbLWAJUN7cEsTSjo2uwT-puj07rQSBwzc9xOpKPJTqeJPfX3iZA5GqtK6PTvXK5hKgzrjJgefnw3QZ8jieK879LDzLxlCleFsVMuVLcpGR4aQEj88XbRE1U3u5wGG25LXqbwi01R69q5EqttFJl6-FIXaU4ynrYqadzzBaGcXOZ23qe8XdUbwx6lDEqjJaMQn_QZFEQ7xQUSblSVVF3UJABL43tNMLjZtIVFY-FIU1wtKxFH_A6zX3DYf2w8ImgPre5Um"/>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center px-12">
+      <div class="text-on-primary space-y-3">
+        <span class="inline-block px-3 py-1 rounded-full bg-white/20 text-xs font-bold tracking-widest uppercase">Cardápio Digital</span>
+        <h1 class="font-headline text-4xl md:text-5xl">Sabores do Dia</h1>
+        <p class="opacity-90 max-w-sm">Feito com carinho, assado com paixão.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Tabs -->
+  <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 mb-12">
+    <button data-menu-tab="all" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#6B3048] text-white font-bold text-sm">Tudo</button>
+    <button data-menu-tab="paes" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">bakery_dining</span> Pães
+    </button>
+    <button data-menu-tab="doces" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">cookie</span> Doces &amp; Pastéis
+    </button>
+    <button data-menu-tab="bolos" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">cake</span> Bolos
+    </button>
+    <button data-menu-tab="bebidas" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">local_cafe</span> Bebidas
+    </button>
+    <button data-menu-tab="salgados" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">lunch_dining</span> Salgados
+    </button>
+    <button data-menu-tab="quitandas" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">grain</span> Quitandas
+    </button>
+    <button data-menu-tab="tortas" class="flex-shrink-0 px-5 py-2.5 rounded-full bg-[#F2E9D8] text-[#504439] font-medium text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">cake</span> Tortas
+    </button>
+  </div>
+
+  <!-- ── Pães ── -->
+  <section data-menu-section="paes" class="mb-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-headline text-3xl text-primary">Pães Artesanais</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="2"
+        data-product-name="Sourdough Clássico"
+        data-product-price="24.90"
+        data-product-desc="Fermentado naturalmente por 24h. Casca crocante e miolo azedo perfeito."
+        data-product-weight="600g • Fermentado por 24h"
+        data-product-badge="Vegano">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt="Pão sourdough artesanal"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSCVTcAnqHwh0nY8wtMBI5nNUhrZKUoiCCdDPok4m-g1Do-fXamFrU3NXjHgyVront7r1dQCXTOp3AVBgTfy-aRbca076EsvRxF5vWSK9LY-JViNRFJb3rxiaeQZM3nKdkg_201M7eXY0SD08c5iQPKq2WCprTCuwEkAabD0rOwePE2PL-N6z03zkERVizxt5YHCkxVupoimewqo5OAB3fcDnaeIaMR3WO1XDqjaWwuTm6pSWhhyokpDcX9BYDac2L8NKuTLcYf7Fh"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Sourdough Clássico</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 24,90</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Fermentação natural de 24h, casca crocante e miolo macio.</p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Vegano</span>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="8"
+        data-product-name="Colheita de Sementes"
+        data-product-price="26.00"
+        data-product-desc="Blend orgânico de 7 grãos, rico em fibras e sabor."
+        data-product-weight="550g • 7 grãos orgânicos"
+        data-product-badge="Orgânico">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt="Pão multigrãos com sementes"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2VjXDGmc652rvyIuNpeKdExoRv3-S0fFU2Lz_KQRaH0AlPzZTpPRtsPEWCqXdX3iNDPA1s4xgnG0obZSK3KbtREGkywTJOD7bC1lKNlrrJy88UmEoMMMVakUmj10vYzzytdoXI5vR92Brt9J7bx2VEObKUEi_3GeLZMjo1saT55fTG-zaNt04-VuvKtXi8p_kZRqxRXqNPxhYcGBviH80lBuAEn90QvlHAh9APEvPMpnRxeRJYxak9-6nL-USNdZbcHQWOKeKef3U"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Colheita de Sementes</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 26,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Blend orgânico de 7 grãos, rico em fibras e sabor.</p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Orgânico</span>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="9"
+        data-product-name="Baguete Tradicional"
+        data-product-price="10.00"
+        data-product-desc="Casca crocante, miolo aerado. Saindo quente a cada hora."
+        data-product-weight="250g • Farinha tipo 00"
+        data-product-badge="Fresquinho">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt="Baguete artesanal dourada"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQXtMi9-wv-0v_fyJU2Lm1XWZVlIPvSmB02IlzBP0Awt3dcrKoDt8afwlf8P70Vlr34zScONKMV1I36TLSTR0lrnWO8KBCTRibDf1z7Ppsi_6yF5iqZHcmuwd5v1K8g_dNbjaZE7aGt79564M9HhBo8rVleHvPluH8CraISG8iQFGgzA4o2RsLHHOhg4yGfUReCrT9HOLwsRrjZbCQZ5cPBLXQpMHBvm39SX3f7lxIU7O7kFQ5sILap51trPorPiJroetlN0-Dhuhm"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Baguete Tradicional</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 10,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Casca crocante, miolo aerado. Saindo quente a cada hora.</p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Fresquinho Diário</span>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Doces & Pastéis ── -->
+  <section data-menu-section="doces" class="mb-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-headline text-3xl text-primary">Doces &amp; Pastéis</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="1"
+        data-product-name="Croissant de Amêndoa"
+        data-product-price="12.90"
+        data-product-desc="Frangipane premium, assado duas vezes para perfeição máxima."
+        data-product-weight="120g • Frangipane de amêndoa premium"
+        data-product-badge="Destaque">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt="Croissant de amêndoa"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzP9764Tqtp46h2aSjm1T_7kVe64xnaqRf56rtqem0tPLQKPWQ7Z2tNfCbNPIavrarA17bNAmKUtQiL0sKN2a3Tq3f53Xx7MV_B5yQChOxrjEOaVGVoEIir35HZMGppkvVzYf0zA9ZobvO4AyAQpxtZ2bs8uczYUazl-XvPoKP5XZ6dxsgHwS57jtUoWgVXgBjTPJLvBf8dZYuo-aYFTbhxzcOattEtgFY0sotqvS9RaKp6ZyYuxkviqqOo0rxQBOtlLVXsqV_7W3I"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Croissant de Amêndoa</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 12,90</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1">Frangipane premium, assado duas vezes para perfeição.</p>
+          <div class="flex items-center justify-between mt-3">
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="text-xs font-bold text-tertiary">4.9</span>
+            </div>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="10"
+        data-product-name="Donut Clássico"
+        data-product-price="8.50"
+        data-product-desc="Glacê artesanal com granulados coloridos ou chocolate. Fofinho por dentro, crocante por fora."
+        data-product-weight="80g • Glacê artesanal"
+        data-product-badge="">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt="Donuts coloridos"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD0UJQ2MDry5vnJi7wx6U14yYsUWXlUAFDVG7ra8CIkITMcyVr2_4Bvi4LekgJffYH6K2hHuDcR-Q4XTI_K8mZXs84t4YTpjSADjbxqZPZJ8jIcrv3FC3ZTYR3JZOv3Xn3anAQSkSHUsnzxhHF_WBC9-IXblufFftA2WVofTe3Q83GIz3UqmlkAWukvI0K0rDrCeJ5gtKUCPH2A6Sq9iXjShoXprV8ihEcZwzFQTGr8iIEgPwxeTAwojjEak3de2C0CYQppvXCQZcA"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Donut Clássico</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 8,50</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1">Glacê artesanal com granulados coloridos ou chocolate.</p>
+          <div class="flex items-center justify-between mt-3">
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="text-xs font-bold text-tertiary">4.8</span>
+            </div>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="4"
+        data-product-name="Macarons de Amêndoa"
+        data-product-price="35.00"
+        data-product-desc="Sabores sazonais variados. Caixa presenteável inclusa. Sem glúten."
+        data-product-weight="6 unidades • Caixa presenteável inclusa"
+        data-product-badge="Sem Glúten">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt="Macarons franceses coloridos"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwOqaNXPs3NsjEf2dTZDh3P3-IYXBaXO3dQywnWYPsvZuhi8nVQxFOfaAYNwE15h_Sp0dQc1WI6wv78weBCPtJBSIpngm89UriVaXeGVDHmCAwgjfCDYlY0lk8MAg6czxSHwB4DwzKoiD2MliSp0awT9RVD74zkGZHwEkAfEBr0iC3h0ksdMWMjz5SkSZpSxpbrUm9o2dr8j2LzbAyag5ztQz2SK4q1oCPbFa4mDWUBLU-qAwYf8tWqGNBysTL0RnlxYm_QcO7XwXK"/>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Macarons (6 un.)</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 35,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1">Sabores sazonais variados. Caixa presenteável inclusa.</p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Sem Glúten</span>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Bolos ── -->
+  <section data-menu-section="bolos" class="mb-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-headline text-3xl text-primary">Bolos Artesanais</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-lg transition-shadow group flex flex-col md:flex-row"
+        data-product-id="6"
+        data-product-name="Delícia de Ganache"
+        data-product-price="120.00"
+        data-product-desc="Bolo de chocolate belga 70% cacau em camadas com ganache aveludado. Serve até 12 pessoas."
+        data-product-weight="1,2kg • Serve até 12 pessoas"
+        data-product-badge="Encomenda">
+        <div class="w-full md:w-48 h-48 overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt="Bolo de chocolate com ganache"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEu8AX9pFLeJA8p25qg-lEODjyqx_WXgcd8EFzyNlIO3AyJGyhFaW7NZWpXgIWcr8n5Pw3cRyGCcqGF3VKx4oxtt4zlH2Eohxl5NJJEY7naFK1_Snr-CH8J5CgP2-GKWswRk4sJZGzKCgcPP6TEJqIZA4KbFNe6DpHQ9Gp8Bt60JFlVotUu-fbL2h5ORkgR09SoNjjmTQtuUT_VaX_Nnwm8NQQPeLz9d5GMnwb_7lwOokOr9d6zDvEcMmjlYqxQxzcHiMZLkbysiXD"/>
+        </div>
+        <div class="p-6 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-headline text-xl text-primary">Delícia de Ganache</h3>
+              <span class="text-tertiary font-bold">R$ 120,00</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">1,2kg • Chocolate Belga 70% cacau com ganache aveludado.</p>
+          </div>
+          <div class="flex items-center justify-between mt-4">
+            <span class="text-xs text-on-surface-variant">Serve até 12 pessoas</span>
+            <button data-add-cart class="px-5 py-2 rounded-full bg-primary text-on-primary font-bold text-sm hover:bg-[#8B4060] transition-colors">
+              Encomendar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-lg transition-shadow group flex flex-col md:flex-row"
+        data-product-id="3"
+        data-product-name="Cupcake Trufa"
+        data-product-price="9.90"
+        data-product-desc="Massa de cacau com ganache belga e cobertura de chocolate sedoso. Favorito da casa!"
+        data-product-weight="Individual • Recheio de ganache belga"
+        data-product-badge="Bestseller">
+        <div class="w-full md:w-48 h-48 overflow-hidden flex-shrink-0">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt="Cupcakes decorados"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCzRdbbAkk5jJ7zn7D6UC-SiL420tdAVzRUtIefb7oMvNt44eK3Dndgh4RpaPDHXyyJZPFCkLNS7ndKOGP6d2vS3ugkwe4PmyPKqYZZolegl-Z8FdSFegLZF5uP5m5amRgw6b3MDA1PQmSwhhw2PkZsEB5R1Rpmft_oG44-l8fUUaA8gtexREXAyMNxV30pbWi3QNCbfkkq-dIiRXWRv6dpgpjlMqlWV4F_LZKm0ATXMpFoRzwSjiEASBKWu2MLMcUu8epLrcaAAoP"/>
+        </div>
+        <div class="p-6 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-headline text-xl text-primary">Cupcake Trufa</h3>
+              <span class="text-tertiary font-bold">R$ 9,90</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">Individual • Massa de cacau com ganache belga e cobertura sedosa.</p>
+          </div>
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="text-sm font-bold text-tertiary">4.9</span>
+              <span class="text-xs text-on-surface-variant">(215)</span>
+            </div>
+            <button data-add-cart class="px-5 py-2 rounded-full bg-primary text-on-primary font-bold text-sm hover:bg-[#8B4060] transition-colors">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Bebidas ── -->
+  <section data-menu-section="bebidas" class="mb-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-headline text-3xl text-primary">Bebidas</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="11"
+        data-product-name="Cappuccino Artesanal"
+        data-product-price="14.00"
+        data-product-desc="Espresso duplo com leite vaporizado e arte latte feita à mão."
+        data-product-weight="350ml • Grão 100% arábica"
+        data-product-badge="Café Especial">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-4xl text-[#C78B9F]">local_cafe</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Cappuccino Artesanal</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 14,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1">Espresso duplo com leite vaporizado e arte latte.</p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Café Especial</span>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 bg-surface-container-lowest p-4 rounded-xl hover:shadow-md transition-shadow group"
+        data-product-id="12"
+        data-product-name="Chá Chai Latte"
+        data-product-price="12.00"
+        data-product-desc="Blend de chás especiados com leite integral vaporizado. Quente ou gelado."
+        data-product-weight="350ml • Leite integral"
+        data-product-badge="Sem Cafeína">
+        <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-4xl text-[#C78B9F]">emoji_food_beverage</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-start">
+            <h3 class="font-headline text-lg text-primary leading-tight">Chá Chai Latte</h3>
+            <span class="text-tertiary font-bold ml-2 shrink-0">R$ 12,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-1">Blend especiado com leite vaporizado. Quente ou gelado.</p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Sem Cafeína</span>
+            <button data-add-cart class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-[#8B4060] transition-colors">
+              <span class="material-symbols-outlined" style="font-size:18px">add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Salgadinhos ── -->
+  <section data-menu-section="salgados" class="mb-16">
+    <div class="flex items-center gap-4 mb-2">
+      <h2 class="font-headline text-3xl text-primary">Salgadinhos</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+    <p class="text-sm text-on-surface-variant mb-8 flex items-center gap-1.5">
+      <span class="material-symbols-outlined text-base">info</span>
+      Preço por 100 unidades
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Bolinha de queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 125,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Cachorro quente</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 135,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Coxinha</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 120,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Coxinha com catupiry</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 135,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Coxinha de cheddar</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 125,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Croissant de chocolate</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 290,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Croissant de damasco</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Croissant de mussarela</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Croissant de presunto</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Croissant de presunto e queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Croquete de carne</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 290,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Diplomata</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 550,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Diplomata pequena</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 245,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Empada de camarão</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Empada de frango</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 130,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Empada de palmito</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 130,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Empanado de salsicha</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 120,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Enroladinho de queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 135,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Enroladinho de queijo com coco</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 145,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Enroladinho de salsicha</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 125,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Enroladinho folhado de queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 135,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Esfirra fechada de carne</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 150,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Esfirra folhada de carne</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 180,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Esfirra folhada de frango</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 145,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Esfirra folhada de ricota</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 190,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Kibe (oco por dentro)</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 130,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Kibe com requeijão</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 140,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Mini misto</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 165,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Mini pizza "P"</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 230,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Mini pizza "M"</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 280,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel assado de carne</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 150,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel assado de frango</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 135,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel assado de ricota</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 135,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel de 4 queijos</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 280,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel de frango com pimenta</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel frito de carne</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 169,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pastel frito de queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 125,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Quiche com bacon</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 160,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Quiche com goiabada</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 160,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Quiche com tomate seco</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 160,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Quiche de alho poró</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 160,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Quiche de ricota com espinafre</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 160,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Risole</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 120,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Saltene</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 210,00</span></div>
+    </div>
+  </section>
+
+  <!-- ── Quitandas ── -->
+  <section data-menu-section="quitandas" class="mb-16">
+    <div class="flex items-center gap-4 mb-2">
+      <h2 class="font-headline text-3xl text-primary">Quitandas</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+    <p class="text-sm text-on-surface-variant mb-8 flex items-center gap-1.5">
+      <span class="material-symbols-outlined text-base">info</span>
+      Preço por 100 unidades
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Biscoito de queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 150,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Broa de sal</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 150,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Broa de doce</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 150,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Pão de queijo</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 180,00</span></div>
+      <div class="flex justify-between items-center bg-surface-container-lowest px-5 py-3.5 rounded-xl hover:bg-surface-container transition-colors"><span class="text-on-surface">Rosca Húngara pequena</span><span class="font-bold text-tertiary shrink-0 ml-4">R$ 200,00</span></div>
+    </div>
+  </section>
+
+  <!-- ── Tortas Doces ── -->
+  <section data-menu-section="tortas" class="mb-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-headline text-3xl text-primary">Tortas Doces</h2>
+      <div class="flex-1 h-px bg-outline-variant/30"></div>
+    </div>
+
+    <!-- Tabela de Preços: Tradicionais e Especiais/Morango -->
+    <div class="mb-10">
+      <h3 class="font-headline text-xl text-primary mb-1">Tortas Tradicionais &amp; Especiais/Morango</h3>
+      <p class="text-sm text-on-surface-variant mb-4 flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-base">info</span>
+        Escolha o tamanho e o tipo de sabor abaixo
+      </p>
+      <div class="overflow-x-auto rounded-xl">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-primary text-on-primary">
+              <th class="text-left px-4 py-3 font-bold rounded-tl-xl">Tamanho</th>
+              <th class="text-center px-4 py-3 font-bold">Peso</th>
+              <th class="text-center px-4 py-3 font-bold">Serve</th>
+              <th class="text-center px-4 py-3 font-bold">Tradicional</th>
+              <th class="text-center px-4 py-3 font-bold rounded-tr-xl">Especial/Morango</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">BABY</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">500 g</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">4 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 48,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 55,00</td>
+            </tr>
+            <tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">MINI</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">900 g</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">8 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 85,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 90,00</td>
+            </tr>
+            <tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">INTER</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">1,4 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">12 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 139,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 145,00</td>
+            </tr>
+            <tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">PP</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">1,9 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">20 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 200,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 215,00</td>
+            </tr>
+            <tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">P</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">2,6 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">30 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 249,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 269,00</td>
+            </tr>
+            <tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">P MAIOR</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">3,8 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">40 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 340,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 359,00</td>
+            </tr>
+            <tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">M</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">5 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">50 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 450,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 470,00</td>
+            </tr>
+            <tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+              <td class="px-4 py-3 font-bold text-primary">G</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">7 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">80 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 570,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary">R$ 590,00</td>
+            </tr>
+            <tr class="bg-surface-container-lowest hover:bg-surface-container transition-colors">
+              <td class="px-4 py-3 font-bold text-primary rounded-bl-xl">GG</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">10 kg</td>
+              <td class="px-4 py-3 text-center text-on-surface-variant">120 pessoas</td>
+              <td class="px-4 py-3 text-center font-bold text-tertiary">R$ 750,00</td>
+              <td class="px-4 py-3 text-center font-bold text-secondary rounded-br-xl">R$ 780,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tortas Cremosas - Preço por kg -->
+    <div class="bg-primary/10 border border-primary/20 rounded-xl p-6 mb-10">
+      <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex-1">
+          <h3 class="font-headline text-xl text-primary mb-1">Tortas Cremosas</h3>
+          <p class="text-sm text-on-surface-variant">Disponíveis nos tamanhos PP (2,3 kg · serve 20 pessoas) e P (2,8 kg · serve 30 pessoas)</p>
+        </div>
+        <div class="text-center bg-primary text-on-primary rounded-xl px-8 py-4 shrink-0">
+          <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">Preço por kg</p>
+          <p class="font-headline text-3xl font-bold">R$ 99,00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sabores -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Tortas Tradicionais -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-tertiary shrink-0"></span>
+          <h3 class="font-headline text-lg text-primary">Tradicionais</h3>
+        </div>
+        <div class="space-y-2">
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Abacaxi com Coco <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme de abacaxi em calda de doce de coco, cobertura de chantilly e decoração com coco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Brigadeiro com Nozes e Coco <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro preto com nozes e coco, cobertura de chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Brigadeiro Branco com Caramelo <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de leite condensado caramelizado, crocante com chantilly e brigadeiro branco, cobertura de chantilly com ganache de doce de leite.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Brigadeiro Especial <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro preto, cobertura de brigadeiro preto com ganache preto.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Brigadeiro na Casquinha <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro preto com cobertura de casquinha de chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Brigadeiro Preto com Flocos <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro preto e creme de chocolate com flocos, cobertura de chantilly e chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              BBA <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de brigadeiro branco com ameixa em calda, cobertura de chantilly com ganache de chocolate branco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Floresta Branca <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de cereja com chantilly e chocolate branco, cobertura de raspas de chocolate branco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Floresta Negra <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de chantilly com cerejas e pedaços de chocolate, cobertura de raspas de chocolate ao leite.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Frutas com Cereja <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio com pêssego, ameixa, abacaxi, cerejas e cobertura de chantilly.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Nuvem de Abacaxi <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de abacaxi com coco e creme de leite ninho, cobertura de chantilly com coco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Maracujá <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de mousse de maracujá, cobertura de chantilly e geleia de maracujá.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Marta Rocha <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco e de chocolate, trufas pretas com chantilly, chocolate branco e nozes, baba de moça e cobertura de chantilly com suspiro.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Prestígio <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de leite condensado com coco, cobertura de chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Tropical <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme de ameixa, brigadeiro branco com nozes, abacaxi com coco e cobertura de leite ninho.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Brigadeiro Preto e Branco <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro preto e brigadeiro branco, cobertura de chocolate e ganache de chocolate ao leite e chocolate branco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Doce Sonho <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de creme de leite ninho, flocos de chocolate, bombom Sonho de Valsa, brigadeiro branco e cobertura de chocolate com ganache ao leite.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Tortas Especiais/Morango -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-secondary shrink-0"></span>
+          <h3 class="font-headline text-lg text-primary">Especiais &amp; Morango</h3>
+        </div>
+        <div class="space-y-2">
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Leite Ninho <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme de leite ninho com cobertura de leite ninho.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Ninho com Frutas Vermelhas <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme de leite ninho com geleia de frutas vermelhas, cobertura de leite ninho com geleia de frutas vermelhas.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Ninho com Brigadeiro <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de leite ninho e brigadeiro preto, cobertura de ninho com ganache de chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Ninho com Nutella <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme de leite ninho e nutella, cobertura de ninho com ganache de nutella.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Alpina <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, brigadeiro preto, trufas ao leite e cobertura de chocolate com chantilly e ganache de chocolate ao leite.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Doce de Leite com Creme de Laranja <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme brûlée de laranja, mousse de chocolate amargo, creme de doce de leite com nozes, cobertura de ganache branco e preto mesclado.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Quatro Leites <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme de leite ninho e bombom Ouro Branco, cobertura de ninho e ganache de chocolate branco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Cappuccino <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de creme de leite ninho com cappuccino, ganache preto com flocos, cobertura de chantilly com canela.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Choconinho <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de creme de leite ninho com brigadeiro preto, cobertura de ninho com ganache de chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Delicatessen <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de leite ninho com brigadeiro branco e morangos, cobertura de chantilly e ganache de chocolate branco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Dois Amores <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de brigadeiro branco com morangos e nozes, cobertura de chantilly.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Bem-Casado <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de leite condensado caramelizado com morangos, cobertura de chantilly com caramelo.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Morango <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de creme rosado com morangos e chantilly, cobertura de chantilly.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Bombom Morango <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de chantilly com flocos e morangos, cobertura casquinha de chocolate preto.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Especial com Morangos <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro especial preto e morangos, cobertura de chocolate com ganache ao leite e morangos.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Dos Anjos <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de brigadeiro branco com morangos e suspiros, cobertura de marshmallow flambado.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Terraço <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro branco com morangos e suspiros, cobertura de marshmallow flambado.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Sensação <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de chantilly com flocos, geleia de morango e morangos, cobertura raspas de chocolate ao leite.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              P/B com Morangos <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, recheio de brigadeiro preto, brigadeiro branco e morangos, cobertura de chocolate.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Tortas Cremosas -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-3 h-3 rounded-full bg-primary-container shrink-0 border border-primary/30"></span>
+          <h3 class="font-headline text-lg text-primary">Cremosas</h3>
+        </div>
+        <div class="space-y-2">
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Alemã <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de bolacha de maisena, creme de baunilha e cobertura de chocolate amargo.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Alemã com Ninho <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de bolacha de maisena, creme de baunilha com leite ninho e cobertura de leite ninho.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Café Paris <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo branco, recheio de mousse de café e creme de laranja bahia, cobertura de chantilly, doce de elite, café solúvel e ganache de chocolate branco.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Frutas Vermelhas <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de negresco amanteigado, creme de chantilly com ganache de chocolate branco e castanhas caramelizadas, cobertura de geleia de frutas vermelhas.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Clássica <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Bolo de chocolate, trufa ao leite, trufa meio amargo e trufa branca, cobertura de chantilly com ganache de chocolate.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Holandesa <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de bolacha amanteigada torrada, creme de baunilha, ganache de chocolate meio amargo.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Cheesecake de Morango <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de bolacha amanteigada torrada, cream cheese e geleia de morango.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Cheesecake de Goiabada <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de bolacha amanteigada torrada, cream cheese e goiabada.</p>
+          </details>
+          <details class="bg-surface-container-lowest rounded-xl group">
+            <summary class="px-4 py-3 cursor-pointer font-medium text-on-surface flex justify-between items-center list-none">
+              Cheesecake de Maracujá <span class="material-symbols-outlined text-base text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-4 pb-3 text-sm text-on-surface-variant">Base de bolacha amanteigada torrada, cream cheese e geleia de maracujá.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Info Banner -->
+  <section class="bg-primary-container/30 rounded-xl p-8 flex flex-col md:flex-row items-center gap-6">
+    <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+      <span class="material-symbols-outlined text-on-primary text-3xl">schedule</span>
+    </div>
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="font-headline text-xl text-primary mb-1">Horário de Funcionamento</h3>
+      <p class="text-on-surface-variant text-sm">Segunda a Sexta: 7h às 20h &nbsp;|&nbsp; Sábado: 7h às 18h &nbsp;|&nbsp; Domingo: 8h às 14h</p>
+    </div>
+    <a href="contact.html" class="bg-primary text-on-primary px-6 py-3 rounded-full font-bold hover:bg-[#8B4060] transition-colors shrink-0">Ver Localização</a>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#E7DCCC] mt-20">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-8 py-12">
+    <div class="space-y-4">
+      <div class="text-xl font-serif text-[#6B3048]">Doce Paladar</div>
+      <p class="text-sm text-[#6B3048] leading-relaxed">Criando momentos de doçura com técnicas artesanais e os melhores ingredientes naturais desde 2012.</p>
+    </div>
+    <div class="flex flex-col space-y-3">
+      <h4 class="font-bold text-[#6B3048] mb-2">Links Rápidos</h4>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="index.html">Home</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="catalog.html">Catálogo</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="contact.html">Contato</a>
+    </div>
+    <div class="flex flex-col space-y-3">
+      <h4 class="font-bold text-[#6B3048] mb-2">Redes Sociais</h4>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Instagram</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Facebook</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">WhatsApp</a>
+      <p class="text-[#6B3048]/60 text-[10px] mt-4 uppercase tracking-widest">© 2024 Doce Paladar. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 z-50">
+  <div class="flex justify-around items-center py-3">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-[#6B3048]/70"><span class="material-symbols-outlined">home</span><span class="text-[10px]">Home</span></a>
+    <a href="catalog.html" class="flex flex-col items-center gap-1 text-[#6B3048]/70"><span class="material-symbols-outlined">bakery_dining</span><span class="text-[10px]">Catálogo</span></a>
+    <a href="menu.html" class="flex flex-col items-center gap-1 text-[#C78B9F] font-semibold"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">restaurant_menu</span><span class="text-[10px]">Cardápio</span></a>
+    <a href="contact.html" class="flex flex-col items-center gap-1 text-[#6B3048]/70"><span class="material-symbols-outlined">location_on</span><span class="text-[10px]">Contato</span></a>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

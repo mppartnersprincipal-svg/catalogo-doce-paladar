@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Doce Paladar | Catálogo Artesanal</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#E7DCCC",
+            "on-primary": "#ffffff",
+            "primary-container": "#F8BBD0",
+            "outline-variant": "#D4C3B0",
+            "tertiary": "#322705",
+            "on-surface": "#1E1B18",
+            "background": "#FDF5E6",
+            "outline": "#827060",
+            "surface-container": "#F2E9D8",
+            "surface-container-low": "#F8F0E0",
+            "secondary-container": "#FFD9E4",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#FDF5E6",
+            "on-background": "#1E1B18",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#504439",
+            "on-secondary-container": "#3D1121",
+            "surface-container-high": "#EDE3D2",
+            "on-primary-container": "#3A0020",
+            "secondary": "#C78B9F",
+            "primary": "#6B3048",
+            "tertiary-container": "#F5E4A0",
+            "surface-variant": "#E7DCCC",
+          },
+          fontFamily: { "headline": ["Noto Serif"], "body": ["Plus Jakarta Sans"], "label": ["Plus Jakarta Sans"] },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FDF5E6; }
+    #product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container">
+
+<!-- Nav -->
+<nav class="bg-[#FDF5E6]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4 w-full">
+    <a href="index.html"><img src="images/Logo%20Doce%20Paladar%20(2).png" alt="Doce Paladar" class="h-12 w-auto"></a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="index.html">Home</a>
+      <a class="text-[#6B3048] font-bold border-b-2 border-[#C78B9F] pb-1" href="catalog.html">Catálogo</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="menu.html">Cardápio</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="contact.html">Contato</a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="relative hidden lg:block">
+        <input id="catalog-search" type="text" placeholder="Buscar produtos..."
+          class="bg-surface-container-highest border-none rounded-full py-2 px-6 pr-10 text-sm focus:ring-2 focus:ring-primary/20 w-64 outline-none"/>
+        <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+      </div>
+      <button data-cart-open class="relative scale-95 active:scale-90 transition-transform text-[#6B3048]">
+        <span class="material-symbols-outlined text-2xl">shopping_basket</span>
+        <span class="dp-cart-badge absolute -top-1 -right-1 bg-[#C78B9F] text-white text-[10px] w-4 h-4 rounded-full items-center justify-center" style="display:none">0</span>
+      </button>
+      <a href="#" class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:bg-[#8B4060] transition-colors">Pedir Online</a>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-6 py-12">
+
+  <header class="mb-16">
+    <h1 class="font-headline text-5xl md:text-6xl text-primary mb-4 leading-tight">Catálogo Artesanal <br/><span class="text-secondary italic">&amp; Confeitaria</span></h1>
+    <p class="text-on-surface-variant max-w-xl text-lg">Pães moldados à mão, bolos meticulosamente decorados e doces que contam uma história de tradição e sabor.</p>
+  </header>
+
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Sidebar -->
+    <aside class="w-full lg:w-64 space-y-8 flex-shrink-0">
+      <div>
+        <h3 class="font-headline text-xl text-primary mb-6">Categorias</h3>
+        <ul class="space-y-2">
+          <li>
+            <button data-filter="all" class="sidebar-btn flex items-center w-full px-4 py-2 rounded-xl bg-[#6B3048] text-white font-bold transition-colors">
+              <span class="material-symbols-outlined mr-3">apps</span> Todos
+            </button>
+          </li>
+          <li>
+            <button data-filter="paes" class="sidebar-btn flex items-center w-full px-4 py-2 rounded-xl hover:bg-surface-container-low transition-colors text-on-surface-variant">
+              <span class="material-symbols-outlined mr-3">bakery_dining</span> Pães
+            </button>
+          </li>
+          <li>
+            <button data-filter="bolos" class="sidebar-btn flex items-center w-full px-4 py-2 rounded-xl hover:bg-surface-container-low transition-colors text-on-surface-variant">
+              <span class="material-symbols-outlined mr-3">cake</span> Bolos
+            </button>
+          </li>
+          <li>
+            <button data-filter="doces" class="sidebar-btn flex items-center w-full px-4 py-2 rounded-xl hover:bg-surface-container-low transition-colors text-on-surface-variant">
+              <span class="material-symbols-outlined mr-3">cookie</span> Doces &amp; Pastéis
+            </button>
+          </li>
+          <li>
+            <button data-filter="salgados" class="sidebar-btn flex items-center w-full px-4 py-2 rounded-xl hover:bg-surface-container-low transition-colors text-on-surface-variant">
+              <span class="material-symbols-outlined mr-3">lunch_dining</span> Salgados
+            </button>
+          </li>
+          <li>
+            <button data-filter="bebidas" class="sidebar-btn flex items-center w-full px-4 py-2 rounded-xl hover:bg-surface-container-low transition-colors text-on-surface-variant">
+              <span class="material-symbols-outlined mr-3">local_cafe</span> Bebidas
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-xl bg-primary-container/20 border border-outline-variant/20">
+        <span class="text-xs uppercase tracking-widest font-bold text-primary opacity-60 mb-2 block">Oferta Especial</span>
+        <h4 class="font-headline text-lg text-primary mb-2">Caixa do Confeiteiro</h4>
+        <p class="text-sm text-on-surface-variant mb-4">6 doces sortidos pelo preço de 5.</p>
+        <button class="text-secondary font-bold text-sm flex items-center hover:gap-2 transition-all">
+          Aproveitar <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Products -->
+    <div class="flex-1 min-w-0">
+      <div class="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-4">
+        <span id="product-count" class="text-on-surface-variant font-medium text-sm">Exibindo 6 produtos artesanais</span>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm text-on-surface-variant">Ordenar por:</span>
+          <select id="sort-select" class="bg-transparent border-none text-sm font-bold text-primary focus:ring-0 cursor-pointer outline-none">
+            <option value="default">Mais Popular</option>
+            <option value="price-asc">Preço: Menor ao Maior</option>
+            <option value="price-desc">Preço: Maior ao Menor</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="product-grid">
+
+        <!-- Product 1 -->
+        <div class="group relative bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+          data-product-id="2"
+          data-product-name="Sourdough Clássico"
+          data-product-price="24.90"
+          data-product-desc="Fermentado naturalmente por 24h. Casca crocante, miolo aerado com aquela acidez perfeita que só o levain proporciona."
+          data-product-badge="Vegano"
+          data-product-weight="600g • Naturalmente fermentado por 24h"
+          data-category="paes"
+          data-product-order="1">
+          <div class="aspect-square overflow-hidden rounded-xl mb-4">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Pão sourdough artesanal com crosta dourada"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSCVTcAnqHwh0nY8wtMBI5nNUhrZKUoiCCdDPok4m-g1Do-fXamFrU3NXjHgyVront7r1dQCXTOp3AVBgTfy-aRbca076EsvRxF5vWSK9LY-JViNRFJb3rxiaeQZM3nKdkg_201M7eXY0SD08c5iQPKq2WCprTCuwEkAabD0rOwePE2PL-N6z03zkERVizxt5YHCkxVupoimewqo5OAB3fcDnaeIaMR3WO1XDqjaWwuTm6pSWhhyokpDcX9BYDac2L8NKuTLcYf7Fh"/>
+          </div>
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="font-headline text-xl text-primary">Sourdough Clássico</h3>
+            <span class="font-label text-tertiary font-bold">R$ 24,90</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mb-3">600g • Fermentado naturalmente por 24h</p>
+          <div class="flex gap-2 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Vegano</span>
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Assinatura</span>
+          </div>
+          <div class="flex gap-2">
+            <button data-view-details class="flex-1 py-3 rounded-full border border-outline-variant/30 text-primary font-bold transition-all hover:bg-surface-container text-sm scale-95 active:scale-90">Detalhes</button>
+            <button data-add-cart class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold transition-all hover:bg-[#8B4060] text-sm scale-95 active:scale-90 flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span> Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="group relative bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+          data-product-id="4"
+          data-product-name="Macarons de Amêndoa"
+          data-product-price="35.00"
+          data-product-desc="Macarons franceses com recheio cremoso em sabores sazonais. Sem glúten, feitos com farinha de amêndoa pura."
+          data-product-badge="Sem Glúten"
+          data-product-weight="6 unidades • Sabores sazonais variados"
+          data-category="doces"
+          data-product-order="2">
+          <div class="aspect-square overflow-hidden rounded-xl mb-4">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Macarons franceses em cores pastel"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwOqaNXPs3NsjEf2dTZDh3P3-IYXBaXO3dQywnWYPsvZuhi8nVQxFOfaAYNwE15h_Sp0dQc1WI6wv78weBCPtJBSIpngm89UriVaXeGVDHmCAwgjfCDYlY0lk8MAg6czxSHwB4DwzKoiD2MliSp0awT9RVD74zkGZHwEkAfEBr0iC3h0ksdMWMjz5SkSZpSxpbrUm9o2dr8j2LzbAyag5ztQz2SK4q1oCPbFa4mDWUBLU-qAwYf8tWqGNBysTL0RnlxYm_QcO7XwXK"/>
+          </div>
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="font-headline text-xl text-primary">Macarons de Amêndoa</h3>
+            <span class="font-label text-tertiary font-bold">R$ 35,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mb-3">6 unidades • Sabores sazonais variados</p>
+          <div class="flex gap-2 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Sem Glúten</span>
+          </div>
+          <div class="flex gap-2">
+            <button data-view-details class="flex-1 py-3 rounded-full border border-outline-variant/30 text-primary font-bold transition-all hover:bg-surface-container text-sm scale-95 active:scale-90">Detalhes</button>
+            <button data-add-cart class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold transition-all hover:bg-[#8B4060] text-sm scale-95 active:scale-90 flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span> Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="group relative bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+          data-product-id="5"
+          data-product-name="Croissant de Manteiga"
+          data-product-price="13.00"
+          data-product-desc="Massa folhada tradicional com 72 camadas de manteiga francesa. Crocante por fora, macio e amanteigado por dentro."
+          data-product-badge="Fresquinho Diário"
+          data-product-weight="90g • Massa folhada tradicional 72 camadas"
+          data-category="doces"
+          data-product-order="3">
+          <div class="aspect-square overflow-hidden rounded-xl mb-4">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Croissants amanteigados e folhados"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCYgaGG_XVCYm0uL-XSL7uAXDutBHrB7ihAAYRKeRMFR-354dh42OhyQWLqCkS6kwW46suRhcTem4mESKIRlwm7pwTFkJggzireiUICrbYpEpdZOC5fA5ZJA3IisPKWtpTu-4yVwGIlY-H4nv9H-EuY6u9gCddfLQOvyV6L4B7IgsPIvhw8zn51opPv9N1uvboHVveIsBFEM9KE6bIebXQPl00tRpMAtiqXEd81J4vDRDRuOKoeXrY6-l9lveYqPf0hsLmCym_BKdw"/>
+          </div>
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="font-headline text-xl text-primary">Croissant de Manteiga</h3>
+            <span class="font-label text-tertiary font-bold">R$ 13,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mb-3">90g • Massa folhada tradicional com 72 camadas</p>
+          <div class="flex gap-2 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Fresquinho Diário</span>
+          </div>
+          <div class="flex gap-2">
+            <button data-view-details class="flex-1 py-3 rounded-full border border-outline-variant/30 text-primary font-bold transition-all hover:bg-surface-container text-sm scale-95 active:scale-90">Detalhes</button>
+            <button data-add-cart class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold transition-all hover:bg-[#8B4060] text-sm scale-95 active:scale-90 flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span> Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="group relative bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+          data-product-id="6"
+          data-product-name="Delícia de Ganache"
+          data-product-price="120.00"
+          data-product-desc="Bolo de chocolate belga 70% cacau em camadas com ganache aveludado, recheio de frutas vermelhas e acabamento artesanal. Serve até 12 pessoas."
+          data-product-badge="Encomenda"
+          data-product-weight="1,2kg • 70% Dark Belgian Chocolate • Serve até 12 pessoas"
+          data-category="bolos"
+          data-product-order="4">
+          <div class="aspect-square overflow-hidden rounded-xl mb-4">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Bolo de chocolate com ganache escuro e frutas vermelhas"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEu8AX9pFLeJA8p25qg-lEODjyqx_WXgcd8EFzyNlIO3AyJGyhFaW7NZWpXgIWcr8n5Pw3cRyGCcqGF3VKx4oxtt4zlH2Eohxl5NJJEY7naFK1_Snr-CH8J5CgP2-GKWswRk4sJZGzKCgcPP6TEJqIZA4KbFNe6DpHQ9Gp8Bt60JFlVotUu-fbL2h5ORkgR09SoNjjmTQtuUT_VaX_Nnwm8NQQPeLz9d5GMnwb_7lwOokOr9d6zDvEcMmjlYqxQxzcHiMZLkbysiXD"/>
+          </div>
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="font-headline text-xl text-primary">Delícia de Ganache</h3>
+            <span class="font-label text-tertiary font-bold">R$ 120,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mb-3">1,2kg • Chocolate Belga 70% Cacau</p>
+          <div class="flex gap-2 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Encomenda</span>
+          </div>
+          <div class="flex gap-2">
+            <button data-view-details class="flex-1 py-3 rounded-full border border-outline-variant/30 text-primary font-bold transition-all hover:bg-surface-container text-sm scale-95 active:scale-90">Detalhes</button>
+            <button data-add-cart class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold transition-all hover:bg-[#8B4060] text-sm scale-95 active:scale-90 flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span> Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="group relative bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+          data-product-id="7"
+          data-product-name="Vanilla Bloom"
+          data-product-price="11.00"
+          data-product-desc="Cupcake com cobertura de baunilha Bourbon de Madagascar, decorado com flores comestíveis e acabamento artesanal."
+          data-product-badge=""
+          data-product-weight="Individual • Baunilha Bourbon de Madagascar"
+          data-category="bolos"
+          data-product-order="5">
+          <div class="aspect-square overflow-hidden rounded-xl mb-4">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Cupcakes gourmet com cobertura de baunilha e flores comestíveis"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCzRdbbAkk5jJ7zn7D6UC-SiL420tdAVzRUtIefb7oMvNt44eK3Dndgh4RpaPDHXyyJZPFCkLNS7ndKOGP6d2vS3ugkwe4PmyPKqYZZolegl-Z8FdSFegLZF5uP5m5amRgw6b3MDA1PQmSwhhw2PkZsEB5R1Rpmft_oG44-l8fUUaA8gtexREXAyMNxV30pbWi3QNCbfkkq-dIiRXWRv6dpgpjlMqlWV4F_LZKm0ATXMpFoRzwSjiEASBKWu2MLMcUu8epLrcaAAoP"/>
+          </div>
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="font-headline text-xl text-primary">Vanilla Bloom</h3>
+            <span class="font-label text-tertiary font-bold">R$ 11,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mb-3">Individual • Baunilha Bourbon de Madagascar</p>
+          <div class="flex gap-2 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Bestseller</span>
+          </div>
+          <div class="flex gap-2">
+            <button data-view-details class="flex-1 py-3 rounded-full border border-outline-variant/30 text-primary font-bold transition-all hover:bg-surface-container text-sm scale-95 active:scale-90">Detalhes</button>
+            <button data-add-cart class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold transition-all hover:bg-[#8B4060] text-sm scale-95 active:scale-90 flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span> Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="group relative bg-surface-container-lowest rounded-xl p-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5"
+          data-product-id="8"
+          data-product-name="Colheita de Sementes"
+          data-product-price="26.00"
+          data-product-desc="Pão multigrãos com blend orgânico de 7 grãos. Rico em fibras, nutritivo e com uma crocância única graças às sementes na casca."
+          data-product-badge="Orgânico"
+          data-product-weight="550g • Blend orgânico de 7 grãos"
+          data-category="paes"
+          data-product-order="6">
+          <div class="aspect-square overflow-hidden rounded-xl mb-4">
+            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt="Pão multigrãos fatiado em tábua de madeira"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2VjXDGmc652rvyIuNpeKdExoRv3-S0fFU2Lz_KQRaH0AlPzZTpPRtsPEWCqXdX3iNDPA1s4xgnG0obZSK3KbtREGkywTJOD7bC1lKNlrrJy88UmEoMMMVakUmj10vYzzytdoXI5vR92Brt9J7bx2VEObKUEi_3GeLZMjo1saT55fTG-zaNt04-VuvKtXi8p_kZRqxRXqNPxhYcGBviH80lBuAEn90QvlHAh9APEvPMpnRxeRJYxak9-6nL-USNdZbcHQWOKeKef3U"/>
+          </div>
+          <div class="flex justify-between items-start mb-1">
+            <h3 class="font-headline text-xl text-primary">Colheita de Sementes</h3>
+            <span class="font-label text-tertiary font-bold">R$ 26,00</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mb-3">550g • Blend orgânico de 7 grãos</p>
+          <div class="flex gap-2 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Orgânico</span>
+          </div>
+          <div class="flex gap-2">
+            <button data-view-details class="flex-1 py-3 rounded-full border border-outline-variant/30 text-primary font-bold transition-all hover:bg-surface-container text-sm scale-95 active:scale-90">Detalhes</button>
+            <button data-add-cart class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold transition-all hover:bg-[#8B4060] text-sm scale-95 active:scale-90 flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-base">add_shopping_cart</span> Carrinho
+            </button>
+          </div>
+        </div>
+
+      </div><!-- end #product-grid -->
+
+      <!-- Pagination -->
+      <div class="mt-16 flex justify-center items-center space-x-2">
+        <button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant/20 text-primary hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary font-bold">1</button>
+        <button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">2</button>
+        <button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">3</button>
+        <span class="px-2">...</span>
+        <button class="w-10 h-10 rounded-full flex items-center justify-center border border-outline-variant/20 text-primary hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div><!-- end products -->
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#E7DCCC] mt-20">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-8 py-12">
+    <div class="space-y-4">
+      <div class="text-xl font-serif text-[#6B3048]">Doce Paladar</div>
+      <p class="text-sm text-[#6B3048] leading-relaxed">Criando momentos de doçura com técnicas artesanais e os melhores ingredientes naturais desde 2012.</p>
+      <div class="flex space-x-4">
+        <a class="material-symbols-outlined text-[#6B3048]/80 hover:text-[#C78B9F] transition-colors" href="#">alternate_email</a>
+        <a class="material-symbols-outlined text-[#6B3048]/80 hover:text-[#C78B9F] transition-colors" href="#">call</a>
+        <a class="material-symbols-outlined text-[#6B3048]/80 hover:text-[#C78B9F] transition-colors" href="#">location_on</a>
+      </div>
+    </div>
+    <div class="flex flex-col space-y-3">
+      <h4 class="font-bold text-[#6B3048] mb-2">Explorar</h4>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Instagram</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Facebook</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">WhatsApp</a>
+    </div>
+    <div class="flex flex-col space-y-3">
+      <h4 class="font-bold text-[#6B3048] mb-2">Legal</h4>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Termos de Serviço</a>
+      <a class="text-[#6B3048]/80 text-sm hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Política de Privacidade</a>
+      <p class="text-[#6B3048]/60 text-[10px] mt-4 uppercase tracking-widest">© 2024 Doce Paladar. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 z-50">
+  <div class="flex justify-around items-center py-3">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-[#6B3048]/70"><span class="material-symbols-outlined">home</span><span class="text-[10px]">Home</span></a>
+    <a href="catalog.html" class="flex flex-col items-center gap-1 text-[#C78B9F] font-semibold"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">bakery_dining</span><span class="text-[10px]">Catálogo</span></a>
+    <button data-cart-open class="flex flex-col items-center gap-1 text-[#6B3048]/70 relative">
+      <span class="material-symbols-outlined">shopping_basket</span>
+      <span class="dp-cart-badge absolute -top-1 right-3 bg-[#C78B9F] text-white text-[10px] w-4 h-4 rounded-full items-center justify-center" style="display:none">0</span>
+      <span class="text-[10px]">Carrinho</span>
+    </button>
+    <a href="contact.html" class="flex flex-col items-center gap-1 text-[#6B3048]/70"><span class="material-symbols-outlined">person</span><span class="text-[10px]">Perfil</span></a>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

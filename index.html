@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Doce Paladar | Confeitaria Artesanal</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#E7DCCC",
+            "on-primary": "#ffffff",
+            "primary-container": "#F8BBD0",
+            "outline-variant": "#D4C3B0",
+            "tertiary": "#322705",
+            "on-surface": "#1E1B18",
+            "background": "#FDF5E6",
+            "outline": "#827060",
+            "secondary-fixed": "#FFD9E4",
+            "surface-container": "#F2E9D8",
+            "surface-container-low": "#F8F0E0",
+            "secondary-container": "#FFD9E4",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#FDF5E6",
+            "on-background": "#1E1B18",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#504439",
+            "on-secondary-container": "#3D1121",
+            "surface-container-high": "#EDE3D2",
+            "on-primary-container": "#3A0020",
+            "on-tertiary-container": "#1C1500",
+            "secondary": "#C78B9F",
+            "primary": "#6B3048",
+            "tertiary-container": "#F5E4A0",
+            "surface-variant": "#E7DCCC",
+          },
+          fontFamily: {
+            "headline": ["Noto Serif"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { background-color: #FDF5E6; color: #1E1B18; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .editorial-shadow { box-shadow: 0 12px 40px rgba(30,27,19,.06); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Header -->
+<header class="bg-[#FDF5E6]/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4 w-full">
+    <a href="index.html"><img src="images/Logo%20Doce%20Paladar%20(2).png" alt="Doce Paladar" class="h-12 w-auto"></a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-[#6B3048] font-bold border-b-2 border-[#C78B9F] pb-1" href="index.html">Home</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="catalog.html">Catálogo</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="menu.html">Cardápio</a>
+      <a class="text-[#6B3048]/70 font-medium pb-1 hover:text-[#C78B9F] transition-colors" href="contact.html">Contato</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button data-cart-open class="relative text-[#6B3048] scale-95 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-2xl">shopping_basket</span>
+        <span class="dp-cart-badge absolute -top-1 -right-1 bg-[#C78B9F] text-white text-[10px] w-4 h-4 rounded-full items-center justify-center" style="display:none">0</span>
+      </button>
+      <a href="catalog.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label font-semibold hover:bg-[#8B4060] transition-colors shadow-sm">Pedir Online</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="relative min-h-[870px] flex items-center px-6 overflow-hidden bg-surface">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-6 z-10 space-y-6">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase">Confeitaria Artesanal</span>
+        <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-primary leading-[1.1]">Delícias Fresquinhas, Todo Dia</h1>
+        <p class="font-body text-lg text-on-surface-variant max-w-lg">Mergulhe no aroma da tradição. Pães e doces artesanais feitos com ingredientes orgânicos e um toque especial de carinho.</p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="catalog.html" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label font-bold text-lg shadow-lg hover:bg-[#8B4060] transition-all scale-95 active:scale-90">Comprar Agora</a>
+          <a href="menu.html" class="border border-outline-variant text-primary px-10 py-4 rounded-full font-label font-bold text-lg hover:bg-surface-container-low transition-all scale-95 active:scale-90">Ver Cardápio</a>
+        </div>
+      </div>
+      <div class="md:col-span-6 relative h-[500px] md:h-[700px]">
+        <div class="absolute inset-0 bg-primary-container/40 rounded-[4rem] rotate-3 scale-95"></div>
+        <img class="absolute inset-0 w-full h-full object-cover rounded-[3rem] editorial-shadow -rotate-2 transform transition-transform hover:rotate-0 duration-700"
+          alt="Pão artesanal e croissants folhados em uma mesa de madeira com luz suave da manhã"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKiXTQhp7ik1IDgDOiQU1ZuufrBxi9sDFFkCeAGRsMEjcmSaeIOgx8WV6Wq8l8j_GFJRdD9wKBaOuv3d6H_bi-CITbNUGsrGarz3HcN8SStU2aNjizKNUJpz3uqgezZPtNc2MYM_uSKLaLQGFM3bUq3epiefw9X4_IQ_r_FzMCnRfozbFITsiroQ6f14n3svlKOxPf9Kx1qU5Jp8rSNEVK37vooKSywoLvjIG66DUrEDfoNULHS5l7OZ1NRgIggMCqc-gHlSukcJgh"/>
+        <div class="absolute -bottom-10 -left-10 bg-surface-container-lowest p-6 rounded-xl editorial-shadow hidden lg:block">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+              <span class="material-symbols-outlined">temp_preferences_custom</span>
+            </div>
+            <div>
+              <p class="text-sm font-bold">Assado Fresquinho</p>
+              <p class="text-xs text-on-surface-variant">Todo dia às 4h da manhã</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-12">
+        <div class="space-y-2">
+          <h2 class="font-headline text-4xl text-primary">Explore Nossa Vitrine</h2>
+          <div class="h-1 w-20 bg-secondary rounded-full"></div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+
+        <a href="catalog.html" class="group cursor-pointer">
+          <div class="aspect-square rounded-xl bg-surface-container-lowest overflow-hidden editorial-shadow mb-3 transition-transform group-hover:-translate-y-2">
+            <div class="h-full w-full flex flex-col items-center justify-center p-8 text-center bg-secondary-container/20">
+              <span class="material-symbols-outlined text-5xl text-secondary mb-4">star</span>
+              <p class="font-headline text-xl text-primary">Especiais</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="catalog.html?category=doces" class="group cursor-pointer">
+          <div class="aspect-square rounded-xl bg-surface-container-lowest overflow-hidden editorial-shadow mb-3 transition-transform group-hover:-translate-y-2 relative">
+            <img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              alt="Donuts glaceados com granulados coloridos"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD0UJQ2MDry5vnJi7wx6U14yYsUWXlUAFDVG7ra8CIkITMcyVr2_4Bvi4LekgJffYH6K2hHuDcR-Q4XTI_K8mZXs84t4YTpjSADjbxqZPZJ8jIcrv3FC3ZTYR3JZOv3Xn3anAQSkSHUsnzxhHF_WBC9-IXblufFftA2WVofTe3Q83GIz3UqmlkAWukvI0K0rDrCeJ5gtKUCPH2A6Sq9iXjShoXprV8ihEcZwzFQTGr8iIEgPwxeTAwojjEak3de2C0CYQppvXCQZcA"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4">
+              <p class="text-white font-headline text-lg">Donuts</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="catalog.html?category=doces" class="group cursor-pointer">
+          <div class="aspect-square rounded-xl bg-surface-container-lowest overflow-hidden editorial-shadow mb-3 transition-transform group-hover:-translate-y-2 relative">
+            <img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              alt="Biscoitos de chocolate empilhados"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW7Vr7DJAigBbZMJzQe9ToMuGbZmHSxQ5-VQAP9RnkbC1oA2XdluIYk2QcUbwwsvzScIv1kthgyTRhFVKNV1kMm9SwGPLKMaB6C2xY1ZOH0eHjO3rIWKbBb0qOaKaBCHofUvz6O86EC21tCR_xSarwQr4wR55LKIkpboD1KGpGPBGCqVsdd6lmUV_zBspKwVkD6MmbrqzTfaPgAboh2Miym_-5IOs2RH1eJ3J1N6kNZq64OsJT0CMMxXa9tZGT4-HtV0yDtDKbR4EF"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4">
+              <p class="text-white font-headline text-lg">Cookies</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="catalog.html?category=bolos" class="group cursor-pointer">
+          <div class="aspect-square rounded-xl bg-surface-container-lowest overflow-hidden editorial-shadow mb-3 transition-transform group-hover:-translate-y-2 relative">
+            <img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              alt="Bolo de chocolate em camadas com cobertura aveludada"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLL6SAojJauecTR_jlU5WwGriidn0QNi4guLhZzUH-SC_jmramCt2_KyDevXKX_QziyhAqK3i2rdGB7SwDVSRNCAgUcJ8r1oNLOBs0HEeCFR9gFeXi9wzhjseL458KvMvF01iWp6B-Mb-y6xtCjm1BU1dPNqoOWfQhksmBhCKv9MIDmdjqNUvpDt2DWsDVNCWWJRhuNyXmLwd4EkLkfIJW1aRzZ1ddqBw_Yeikva48ScJPg27fQJwmicDYRbsE2aeyekHkTdpO_wdS"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4">
+              <p class="text-white font-headline text-lg">Bolos</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="catalog.html?category=paes" class="group cursor-pointer">
+          <div class="aspect-square rounded-xl bg-surface-container-lowest overflow-hidden editorial-shadow mb-3 transition-transform group-hover:-translate-y-2 relative">
+            <img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              alt="Baguetes e pães rústicos em cesta de vime"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQXtMi9-wv-0v_fyJU2Lm1XWZVlIPvSmB02IlzBP0Awt3dcrKoDt8afwlf8P70Vlr34zScONKMV1I36TLSTR0lrnWO8KBCTRibDf1z7Ppsi_6yF5iqZHcmuwd5v1K8g_dNbjaZE7aGt79564M9HhBo8rVleHvPluH8CraISG8iQFGgzA4o2RsLHHOhg4yGfUReCrT9HOLwsRrjZbCQZ5cPBLXQpMHBvm39SX3f7lxIU7O7kFQ5sILap51trPorPiJroetlN0-Dhuhm"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4">
+              <p class="text-white font-headline text-lg">Pães</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Most Loved -->
+  <section class="py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="font-headline text-5xl text-primary">Os Mais Amados</h2>
+        <p class="font-body text-on-surface-variant max-w-xl mx-auto">Os favoritos da nossa comunidade, assados fresquinhos toda manhã com perfeição.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <!-- Product 1 -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow group"
+          data-product-id="1"
+          data-product-name="Croissant de Amêndoa"
+          data-product-price="12.90"
+          data-product-desc="Assado duas vezes com frangipane de amêndoa premium e coberto com lâminas tostadas."
+          data-product-badge="Destaque"
+          data-product-weight="1 unidade • 120g">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              alt="Croissants de amêndoa dourados polvilhados com açúcar de confeiteiro"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzP9764Tqtp46h2aSjm1T_7kVe64xnaqRf56rtqem0tPLQKPWQ7Z2tNfCbNPIavrarA17bNAmKUtQiL0sKN2a3Tq3f53Xx7MV_B5yQChOxrjEOaVGVoEIir35HZMGppkvVzYf0zA9ZobvO4AyAQpxtZ2bs8uczYUazl-XvPoKP5XZ6dxsgHwS57jtUoWgVXgBjTPJLvBf8dZYuo-aYFTbhxzcOattEtgFY0sotqvS9RaKp6ZyYuxkviqqOo0rxQBOtlLVXsqV_7W3I"/>
+          </div>
+          <div class="p-8 space-y-4">
+            <div class="flex justify-between items-start">
+              <h3 class="font-headline text-2xl text-primary">Croissant de Amêndoa</h3>
+              <span class="text-tertiary font-bold text-lg">R$ 12,90</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="text-xs text-on-surface-variant ml-2">(124 avaliações)</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">Assado duas vezes com frangipane de amêndoa premium e coberto com lâminas tostadas.</p>
+            <button data-add-cart class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow group"
+          data-product-id="2"
+          data-product-name="Sourdough Clássico"
+          data-product-price="24.90"
+          data-product-desc="Fermentação de 48 horas para o miolo azedo perfeito e a casca crocante e estourada."
+          data-product-badge="Orgânico"
+          data-product-weight="600g • Fermentado naturalmente por 48h">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              alt="Pão sourdough artesanal fatiado"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUMHBX4LoS9FtjrOmww93Zp8YkpXIa-22-PtwaIZNnospoi3sH-F8qiZ2vsklyAEeVYVdFlM4iyS4MCoqFrD3TBfiXwP-Mw5pDM6yRGAJ8iOGKzkSiUhm4N-MBrcsPsKIC1cHVAnHM82zuEc2jo6x5UkZZU4cnklu7Z8UHZmY_a9qor_NK-5Ty8T3ykteVrSU2Pa79tAu-e2MUncYIKPsTCVekQ3aExOZzSQfl6PCmmlUcvi4PRdkU6sDdQuTTxRtbMcty1OtB27Mz"/>
+          </div>
+          <div class="p-8 space-y-4">
+            <div class="flex justify-between items-start">
+              <h3 class="font-headline text-2xl text-primary">Sourdough Clássico</h3>
+              <span class="text-tertiary font-bold text-lg">R$ 24,90</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 0">star</span>
+              <span class="text-xs text-on-surface-variant ml-2">(89 avaliações)</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">Fermentação de 48 horas para o miolo azedo perfeito e a casca crocante e estourada.</p>
+            <button data-add-cart class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow group"
+          data-product-id="3"
+          data-product-name="Cupcake Trufa"
+          data-product-price="9.90"
+          data-product-desc="Massa intensa de cacau recheada com ganache e coberta com chocolate belga sedoso."
+          data-product-badge="Bestseller"
+          data-product-weight="1 unidade • recheio de ganache belga">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              alt="Cupcakes de chocolate com cobertura cremosa"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY-lCgdQTn-4JkwsO1gegyDzF8qb19q9hqq83R1sZPorF4Y1BJRi0Am7ta9msNl3yc5MtpZM3QjG2AB3AxqWkkD1CxneQnwbxYXwGWIzt_SZ86gVnSdvrrla_KyTJapQgtUgycVvLUxZNC--odO0fkIb_dqmr5g8uVP1jxVnnAma_beuMFOt8iGoWF3doJVZPWIohiEEPoViK_MHrvcM3Bh6KK-bRWKey-N-ZI4MALnhgliyNs-csa_mRsk0TjxIuNg9cZjWwtPiuV"/>
+          </div>
+          <div class="p-8 space-y-4">
+            <div class="flex justify-between items-start">
+              <h3 class="font-headline text-2xl text-primary">Cupcake Trufa</h3>
+              <span class="text-tertiary font-bold text-lg">R$ 9,90</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-sm text-tertiary-container" style="font-variation-settings:'FILL' 1">star</span>
+              <span class="text-xs text-on-surface-variant ml-2">(215 avaliações)</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">Massa intensa de cacau recheada com ganache e coberta com chocolate belga sedoso.</p>
+            <button data-add-cart class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all scale-95 active:scale-90">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Banner -->
+  <section class="max-w-7xl mx-auto px-6 mb-24">
+    <div class="relative rounded-xl overflow-hidden bg-primary p-12 md:p-20 text-on-primary">
+      <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+        <img class="w-full h-full object-cover mix-blend-multiply opacity-40"
+          alt="Mãos de confeiteiro polvilhando farinha"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3aa6RTO8SbLWAJUN7cEsTSjo2uwT-puj07rQSBwzc9xOpKPJTqeJPfX3iZA5GqtK6PTvXK5hKgzrjJgefnw3QZ8jieK879LDzLxlCleFsVMuVLcpGR4aQEj88XbRE1U3u5wGG25LXqbwi01R69q5EqttFJl6-FIXaU4ynrYqadzzBaGcXOZ23qe8XdUbwx6lDEqjJaMQn_QZFEQ7xQUSblSVVF3UJABL43tNMLjZtIVFY-FIU1wtKxFH_A6zX3DYf2w8ImgPre5Um"/>
+      </div>
+      <div class="relative z-10 max-w-xl space-y-6">
+        <h2 class="font-headline text-4xl md:text-5xl">O Pão do Dia</h2>
+        <p class="font-body text-lg opacity-90">Entre para o nosso clube de assinatura e receba pães quentinhos entregues na sua porta toda manhã. Magia pura em cada mordida.</p>
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <input id="subscribe-email" type="email" placeholder="Digite seu e-mail"
+            class="bg-white/10 border border-white/20 text-white rounded-full px-6 py-4 placeholder:text-white/60 focus:ring-secondary w-full sm:flex-grow outline-none"/>
+          <button data-subscribe class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-bold shadow-lg hover:bg-secondary/90 transition-all scale-95 active:scale-90 shrink-0">
+            Assinar Agora
+          </button>
+        </div>
+        <p class="text-xs opacity-70">Entrega grátis no primeiro mês. Cancele quando quiser.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#E7DCCC] mt-20">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-8 py-12">
+    <div class="space-y-6">
+      <div class="text-xl font-serif text-[#6B3048]">Doce Paladar</div>
+      <p class="text-sm text-[#6B3048]">Criando momentos de doçura com tradição, paixão e os melhores ingredientes locais desde 2012.</p>
+      <div class="flex gap-4">
+        <a class="material-symbols-outlined text-[#6B3048] opacity-80 hover:opacity-100 transition-opacity" href="#">alternate_email</a>
+        <a class="material-symbols-outlined text-[#6B3048] opacity-80 hover:opacity-100 transition-opacity" href="#">call</a>
+        <a class="material-symbols-outlined text-[#6B3048] opacity-80 hover:opacity-100 transition-opacity" href="#">location_on</a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <h4 class="font-bold text-primary">Loja</h4>
+        <ul class="space-y-2 text-sm text-[#6B3048]/80">
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Caixa Semanal</a></li>
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Bolos Personalizados</a></li>
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Cartões Presentes</a></li>
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="contact.html">Localizações</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h4 class="font-bold text-primary">Empresa</h4>
+        <ul class="space-y-2 text-sm text-[#6B3048]/80">
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Nossa História</a></li>
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Receitas</a></li>
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Sustentabilidade</a></li>
+          <li><a class="hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Carreiras</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-bold text-primary">Conecte-se</h4>
+      <div class="flex flex-col gap-2">
+        <a class="text-sm text-[#6B3048]/80 hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Instagram</a>
+        <a class="text-sm text-[#6B3048]/80 hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Facebook</a>
+        <a class="text-sm text-[#6B3048]/80 hover:underline decoration-[#C78B9F] underline-offset-4" href="#">WhatsApp</a>
+        <a class="text-sm text-[#6B3048]/80 hover:underline decoration-[#C78B9F] underline-offset-4" href="#">Política de Privacidade</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-8 pb-12">
+    <div class="pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-[#6B3048]/60 uppercase tracking-widest">
+      <span>© 2024 Doce Paladar Confeitaria Artesanal. Todos os direitos reservados.</span>
+      <span>Feito com amor e farinha.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
